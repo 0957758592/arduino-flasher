@@ -2,8 +2,8 @@ var CONNECTION_ID = -1;
 
 var MAX_MS = 2000;
 
-const GENUINO_VENDOR_IDS = [9025, 9114]
-const GENUINO_PRODUCT_IDS = [589, 77, 32780]
+const GENUINO_VENDOR_IDS = [9025, 9114, 1209, 4617]
+const GENUINO_PRODUCT_IDS = [589, 77, 32780, 2201, 2200, 8705, 8704, 8706]
 
 const PACKET_SIZE = 4096
 
@@ -72,11 +72,11 @@ function write_cb(buffer, cb)
     })
 }
 
-function read_cb(callback)
+async function read_cb(callback)
 {
     var time = 0;
 
-    var timeout = function(){
+    var timeout = await function(){
         setTimeout(function() {
 
             time += 50;
